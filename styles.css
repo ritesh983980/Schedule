@@ -1,0 +1,835 @@
+/* Color Variables (Light Theme - Default) */
+:root {
+    --bg-color: #f5f5f5;
+    --app-bg-color: #ffffff;
+    --header-border-color: #e0e0e0;
+    --text-color-primary: #333;
+    --text-color-secondary: #666;
+    --filter-btn-bg: #f0f0f0;
+    --task-card-bg: #f9f9f9;
+    --task-card-border-left: #4285f4; /* Blue */
+    --footer-border-top: #e0e0e0;
+    --active-footer-btn: #4285f4; /* Blue */
+    --modal-bg: #ffffff;
+    --modal-border: #ddd;
+    --button-primary-bg: #4285f4; /* Blue */
+    --button-primary-hover: #366ac4;
+    --button-success-bg: #28a745; /* Green */
+    --button-success-hover: #218838;
+    --edit-btn-color: #4285f4;
+    --edit-btn-hover-bg: #e6f0ff;
+    --delete-btn-color: #ff4d4f;
+    --delete-btn-hover-bg: #ffe6e6;
+    --no-tasks-color: #999;
+    --calendar-header-bg: #f0f0f0;
+    --calendar-day-bg: #fdfdfd;
+    --calendar-inactive-day-bg: #f7f7f7;
+    --calendar-inactive-day-color: #bbb;
+    --calendar-current-day-bg: #e6f0ff;
+    --calendar-current-day-border: #4285f4;
+    --calendar-selected-day-bg: #4285f4;
+    --calendar-selected-day-color: white;
+    --calendar-has-tasks-border: #28a745;
+    --task-dot-color: #28a745;
+    --profile-settings-card-bg: #f9f9f9;
+    --profile-photo-preview-bg: #ddd;
+    --profile-photo-preview-icon-color: #999;
+    --profile-photo-preview-border: #4285f4;
+    --info-link-color: #4285f4;
+    --notification-badge-bg: #ff4d4f; /* Red for badge */
+    --notification-panel-bg: #ffffff;
+    --notification-panel-border: #e0e0e0;
+    --notification-item-bg: #f9f9f9;
+    --notification-item-border: #ddd;
+}
+
+/* Dark Theme Variables */
+body.dark-theme {
+    --bg-color: #1a1a1a;
+    --app-bg-color: #2c2c2c;
+    --header-border-color: #3a3a3a;
+    --text-color-primary: #f0f0f0;
+    --text-color-secondary: #aaaaaa;
+    --filter-btn-bg: #444444;
+    --task-card-bg: #3c3c3c;
+    --task-card-border-left: #6aa8fc; /* Lighter Blue */
+    --footer-border-top: #3a3a3a;
+    --active-footer-btn: #6aa8fc; /* Lighter Blue */
+    --modal-bg: #3a3a3a;
+    --modal-border: #555;
+    --button-primary-bg: #6aa8fc; /* Lighter Blue */
+    --button-primary-hover: #558ee0;
+    --button-success-bg: #4CAF50; /* Slightly Lighter Green */
+    --button-success-hover: #409243;
+    --edit-btn-color: #6aa8fc;
+    --edit-btn-hover-bg: #444444;
+    --delete-btn-color: #ff7070;
+    --delete-btn-hover-bg: #443030;
+    --no-tasks-color: #777;
+    --calendar-header-bg: #3a3a3a;
+    --calendar-day-bg: #3c3c3c;
+    --calendar-inactive-day-bg: #353535;
+    --calendar-inactive-day-color: #777;
+    --calendar-current-day-bg: #4c4c4c;
+    --calendar-current-day-border: #6aa8fc;
+    --calendar-selected-day-bg: #6aa8fc;
+    --calendar-selected-day-color: black; /* For better contrast on dark */
+    --calendar-has-tasks-border: #4CAF50;
+    --task-dot-color: #4CAF50;
+    --profile-settings-card-bg: #3c3c3c;
+    --profile-photo-preview-bg: #555;
+    --profile-photo-preview-icon-color: #bbb;
+    --profile-photo-preview-border: #6aa8fc;
+    --info-link-color: #6aa8fc;
+    --notification-badge-bg: #ff7070; /* Lighter red for dark theme */
+    --notification-panel-bg: #3a3a3a;
+    --notification-panel-border: #555;
+    --notification-item-bg: #3c3c3c;
+    --notification-item-border: #555;
+
+
+    /* Inputs within dark theme */
+    input, select {
+        background-color: #444;
+        color: var(--text-color-primary);
+        border-color: #555 !important;
+    }
+}
+
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color-primary);
+}
+
+.app-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: var(--app-bg-color);
+    min-height: 100vh;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* To handle modal and overlays properly */
+}
+
+/* Header Styles */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--app-bg-color);
+    border-bottom: 1px solid var(--header-border-color);
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--button-primary-bg); /* Use primary button color */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info h2 {
+    font-size: 16px;
+    color: var(--text-color-primary);
+}
+
+.profile-info p {
+    font-size: 12px;
+    color: var(--text-color-secondary);
+}
+
+.header-icons {
+    display: flex;
+    gap: 15px;
+    position: relative; /* For notification badge positioning */
+}
+
+.header-icons i {
+    color: var(--text-color-secondary);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Notification Icon with Badge */
+.notification-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center; /* Align bell vertically */
+}
+
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--notification-badge-bg);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 2px 5px;
+    min-width: 18px; /* Ensure it's circular for single digit */
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Search Overlay */
+.search-overlay {
+    position: absolute;
+    top: 60px; /* Below header */
+    left: 0;
+    width: 100%;
+    background-color: var(--app-bg-color);
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--header-border-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    z-index: 50; /* Above main content, below modal */
+}
+
+.search-overlay input {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--modal-border);
+    border-radius: 20px;
+    font-size: 14px;
+    background-color: var(--filter-btn-bg); /* Use a light background for input */
+    color: var(--text-color-primary);
+}
+
+.search-overlay .close-search {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: var(--text-color-secondary);
+    cursor: pointer;
+}
+
+/* Notification Panel */
+.notification-panel {
+    position: absolute;
+    top: 60px; /* Below header */
+    right: 10px; /* Align to the right side, near bell icon */
+    width: 90%;
+    max-width: 300px; /* Max width for panel */
+    background-color: var(--notification-panel-bg);
+    border: 1px solid var(--notification-panel-border);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 100; /* Above search overlay */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.notification-panel .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--header-border-color);
+    padding-bottom: 10px;
+}
+
+.notification-panel .panel-header h3 {
+    font-size: 16px;
+    color: var(--text-color-primary);
+}
+
+.notification-panel .close-notification {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: var(--text-color-secondary);
+    cursor: pointer;
+}
+
+.notification-list {
+    flex-grow: 1;
+    overflow-y: auto; /* Scroll if many notifications */
+    max-height: 250px; /* Max height before scrolling */
+}
+
+.notification-item {
+    background-color: var(--notification-item-bg);
+    border: 1px solid var(--notification-item-border);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.notification-item h4 {
+    font-size: 14px;
+    color: var(--text-color-primary);
+    margin: 0;
+}
+
+.notification-item p {
+    font-size: 12px;
+    color: var(--text-color-secondary);
+    margin: 0;
+}
+
+.no-notifications-msg {
+    text-align: center;
+    color: var(--no-tasks-color);
+    padding: 20px;
+    font-size: 14px;
+}
+
+
+/* Utility class */
+.hidden {
+    display: none !important;
+}
+
+
+/* Main Content Styles */
+.main-content {
+    padding: 20px;
+    padding-bottom: 70px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Other existing styles... (rest of your CSS code) */
+
+.main-content.hidden {
+    display: none;
+}
+
+.section-title {
+    font-size: 18px;
+    color: var(--text-color-primary);
+    margin-bottom: 15px;
+}
+
+/* Filter Buttons (Common for home & categories pages) */
+.task-filters, .category-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.task-filters::-webkit-scrollbar, .category-filters::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-btn, .category-filter-btn {
+    flex-shrink: 0;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--filter-btn-bg);
+    color: var(--text-color-secondary);
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.filter-btn.active, .category-filter-btn.active {
+    background-color: var(--active-footer-btn);
+    color: white;
+}
+
+/* Task Cards Styles */
+.task-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task-card {
+    background-color: var(--task-card-bg);
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid var(--task-card-border-left);
+    position: relative;
+}
+
+.task-title {
+    font-size: 16px;
+    color: var(--text-color-primary);
+    margin-bottom: 5px;
+}
+
+.task-date {
+    font-size: 12px;
+    color: var(--text-color-secondary);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.task-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.task-actions button {
+    background: none;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 5px 8px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.task-actions .edit-btn {
+    color: var(--edit-btn-color);
+}
+
+.task-actions .edit-btn:hover {
+    background-color: var(--edit-btn-hover-bg);
+}
+
+.task-actions .delete-btn {
+    color: var(--delete-btn-color);
+}
+
+.task-actions .delete-btn:hover {
+    background-color: var(--delete-btn-hover-bg);
+}
+
+/* Footer Styles */
+.app-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    background-color: var(--app-bg-color);
+    border-top: 1px solid var(--footer-border-top);
+    z-index: 10;
+}
+
+.footer-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--text-color-secondary);
+    cursor: pointer;
+    padding: 5px 15px;
+    position: relative; /* For pseudo-elements/shadow */
+    transition: transform 0.2s ease, color 0.2s ease, box-shadow 0.2s ease; /* Add transitions */
+}
+
+.footer-btn:hover {
+    color: var(--active-footer-btn); /* Change color on hover */
+    transform: translateY(-3px) scale(1.05); /* Lift up slightly and scale */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Add a subtle shadow */
+}
+
+.footer-btn.active {
+    color: var(--active-footer-btn);
+    transform: scale(1.1); /* Slightly larger when active */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Stronger shadow for active */
+    /* Add a subtle "bounce" animation when it becomes active */
+    animation: activeBounce 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+@keyframes activeBounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1.1); }
+}
+
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--modal-bg);
+    width: 90%;
+    max-width: 400px;
+    border-radius: 10px;
+    padding: 20px;
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    font-size: 18px;
+    color: var(--text-color-primary);
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color-secondary);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: var(--text-color-secondary);
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--modal-border);
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: white; /* Default for light theme */
+    color: var(--text-color-primary);
+}
+
+.create-task-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--button-primary-bg);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* No tasks message */
+.no-tasks {
+    text-align: center;
+    color: var(--no-tasks-color);
+    padding: 20px;
+}
+
+/* Calendar Page Styles */
+.calendar-header {
+    background-color: var(--calendar-header-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.calendar-header h4 {
+    color: var(--text-color-primary);
+    font-size: 18px;
+}
+
+.calendar-nav-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--active-footer-btn);
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+/* --- FIX FOR CALENDAR GRID LAYOUT --- */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Ensure 7 equal columns */
+    gap: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.day-name {
+    font-weight: bold;
+    color: var(--text-color-secondary);
+    padding: 5px 0;
+    font-size: 12px; /* Smaller font for day names */
+}
+
+.calendar-day {
+    padding: 10px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--calendar-day-bg);
+    min-height: 50px; /* Ensure a minimum height for cells */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    font-size: 14px;
+    color: var(--text-color-primary);
+    aspect-ratio: 1 / 1; /* Make cells square */
+}
+
+.calendar-day.inactive {
+    color: var(--calendar-inactive-day-color);
+    background-color: var(--calendar-inactive-day-bg);
+    cursor: default;
+}
+
+.calendar-day.current-day {
+    background-color: var(--calendar-current-day-bg);
+    border: 1px solid var(--calendar-current-day-border);
+    font-weight: bold;
+}
+
+.calendar-day.has-tasks {
+    border-bottom: 2px solid var(--calendar-has-tasks-border);
+}
+
+.calendar-day.selected-day {
+    background-color: var(--calendar-selected-day-bg);
+    color: var(--calendar-selected-day-color);
+    font-weight: bold;
+}
+
+.task-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--task-dot-color);
+    border-radius: 50%;
+    margin-top: 3px;
+    display: block;
+}
+
+.selected-date-tasks-title {
+    font-size: 16px;
+    color: var(--text-color-primary);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#selected-date-display {
+    color: var(--active-footer-btn);
+    font-weight: bold;
+}
+
+/* Profile Page Styles */
+.profile-settings-card {
+    background-color: var(--profile-settings-card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.profile-photo-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative; /* For positioning delete button */
+}
+
+.profile-photo-preview {
+    width: 100px;
+    height: 100px;
+    background-color: var(--profile-photo-preview-bg);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: var(--profile-photo-preview-icon-color);
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid var(--profile-photo-preview-border);
+}
+
+.profile-photo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-photo-preview i {
+    font-size: 40px;
+}
+
+/* --- FIX FOR CIRCULAR "Change Photo" BUTTON --- */
+.upload-btn {
+    background-color: var(--button-primary-bg);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px; /* Make it more rounded, like a pill */
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s ease;
+    /* To make it more circular, consider fixed width/height if needed */
+    /* width: 120px; */ /* Example fixed width */
+    /* text-align: center; */
+    justify-content: center; /* Center text and icon */
+}
+
+.upload-btn:hover {
+    background-color: var(--button-primary-hover);
+}
+
+.save-profile-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--button-success-bg);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.2s ease;
+}
+
+.save-profile-btn:hover {
+    background-color: var(--button-success-hover);
+}
+
+.setting-subsection-title {
+    font-size: 16px;
+    color: var(--text-color-primary);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--header-border-color);
+    padding-bottom: 5px;
+}
+
+.form-group input[type="checkbox"] {
+    width: auto;
+    margin-left: auto;
+    transform: scale(1.2);
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    margin-bottom: 0;
+    color: var(--text-color-secondary);
+}
+
+.info-link {
+    color: var(--info-link-color);
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.info-link:hover {
+    text-decoration: underline;
+}
+
+/* Delete Photo Button */
+.delete-photo-btn {
+    position: absolute;
+    top: 0px; /* Adjust as needed, relative to profile-photo-upload */
+    right: 70px; /* Adjust as needed, relative to profile-photo-upload */
+    background-color: #ff4d4f; /* Red */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: background-color 0.2s ease;
+}
+
+.delete-photo-btn:hover {
+    background-color: #cc0000;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .app-container {
+        max-width: 100%;
+    }
+
+    /* Adjust search/notification panel for smaller screens if needed */
+    .search-overlay {
+        top: 60px; /* Stay below header */
+        width: 100%;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+    }
+
+    .notification-panel {
+        top: 60px; /* Stay below header */
+        right: 0;
+        width: 100%;
+        max-width: none;
+        border-radius: 0;
+    }
+}
+
